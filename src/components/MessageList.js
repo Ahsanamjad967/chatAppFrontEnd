@@ -1,37 +1,16 @@
 import React from 'react';
+import './Chat.css'; // Importing the CSS file
 
 const MessageList = ({ messages }) => {
   return (
-    <div style={styles.messageList}>
+    <div className="message-list">
       {messages.map((msg, index) => (
-        <div key={index} style={styles.message}>
-          <strong style={styles.user}>{msg.user}:</strong> <span style={styles.content}>{msg.content}</span>
+        <div key={index} className="message">
+          <strong className="user">{msg.user}:</strong> <span className="content">{msg.content}</span>
         </div>
       ))}
     </div>
   );
-};
-
-const styles = {
-  messageList: {
-    maxHeight: '300px',
-    overflowY: 'auto',
-    padding: '10px',
-    backgroundColor: '#fff',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-  },
-  message: {
-    padding: '5px 0',
-    borderBottom: '1px solid #f0f0f0',
-  },
-  user: {
-    color: '#007bff',
-    marginRight: '5px',
-  },
-  content: {
-    color: '#333',
-  },
 };
 
 export default MessageList;
