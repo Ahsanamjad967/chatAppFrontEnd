@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     font-family: 'Arial', sans-serif;
@@ -6,11 +7,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling on small screens */
   }
   
+  /* Main Chat Container */
   .chat-container {
-    width: 400px;
+    width: 90%; /* Adjusted for mobile */
+    max-width: 400px; /* Maximum width for larger screens */
     max-height: 80vh;
     display: flex;
     flex-direction: column;
@@ -20,39 +24,49 @@ body {
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in width/height */
   }
   
+  /* Title Styling */
   .title {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-size: 1.5rem;
   }
   
+  /* Input Container Styling */
   .input-container {
     margin-bottom: 15px;
   }
   
+  /* User Input Field Styling */
   .user-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    box-sizing: border-box;
   }
   
+  /* Form Styling for Message Input */
   .form {
     display: flex;
     align-items: center;
     margin-top: 15px;
   }
   
+  /* Message Input Field Styling */
   .message-input {
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-right: 10px;
+    box-sizing: border-box;
   }
   
+  /* Send Button Styling */
   .send-button {
     padding: 10px 20px;
     background-color: #007bff;
@@ -67,6 +81,7 @@ body {
     background-color: #0056b3;
   }
   
+  /* Message List Styling */
   .message-list {
     max-height: 300px;
     overflow-y: auto;
@@ -76,14 +91,17 @@ body {
     border-radius: 4px;
     margin-bottom: 15px;
     flex-grow: 1;
+    box-sizing: border-box;
   }
   
+  /* Individual Message Styling */
   .message {
     padding: 5px 0;
     border-bottom: 1px solid #f0f0f0;
     animation: fadeIn 0.3s ease-in-out;
   }
   
+  /* Fade In Animation */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -95,12 +113,44 @@ body {
     }
   }
   
+  /* User Name Styling */
   .user {
     color: #007bff;
     margin-right: 5px;
   }
   
+  /* Message Content Styling */
   .content {
     color: #333;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 600px) {
+    .chat-container {
+      width: 100%; /* Full width on small screens */
+      height: 90vh; /* Use most of the viewport height */
+      border-radius: 0; /* Remove rounded corners */
+      max-height: none; /* Allow full height usage */
+      box-shadow: none; /* Remove shadow for cleaner mobile look */
+      padding: 15px; /* Reduce padding */
+    }
+  
+    .title {
+      font-size: 1.2rem; /* Slightly smaller font on mobile */
+      margin-bottom: 10px; /* Less margin for spacing */
+    }
+  
+    .message-list {
+      max-height: 50vh; /* Reduce max height for better spacing */
+    }
+  
+    .send-button {
+      padding: 8px 16px; /* Smaller button padding */
+    }
+  
+    .user-input,
+    .message-input {
+      padding: 8px; /* Smaller padding on input fields */
+    }
   }
   
