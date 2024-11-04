@@ -4,7 +4,7 @@ import axios from 'axios';
 import MessageList from './MessageList';
 import './Chat.css'; // Importing the CSS file
 
-const socket = io('https://chatapp-production-4d3e.up.railway.app');
+const socket = io('https://rigorous-cool-brownie.glitch.me');
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -13,7 +13,7 @@ const Chat = () => {
 
   useEffect(() => {
     // Fetch initial messages
-    axios.get('https://chatapp-production-4d3e.up.railway.app/messages')
+    axios.get('https://rigorous-cool-brownie.glitch.me')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 
@@ -32,7 +32,7 @@ const Chat = () => {
     if (message.trim() && user.trim()) {
       const newMessage = { user, content: message };
       socket.emit('sendMessage', newMessage);
-      axios.post('https://chatapp-production-4d3e.up.railway.app/messages', newMessage)
+      axios.post('https://rigorous-cool-brownie.glitch.me', newMessage)
         .catch(error => console.error('Error sending message:', error));
       setMessage('');
     }
