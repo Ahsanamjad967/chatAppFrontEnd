@@ -13,7 +13,7 @@ const Chat = () => {
 
   useEffect(() => {
     // Fetch initial messages
-    axios.get('https://rigorous-cool-brownie.glitch.me')
+    axios.get('https://rigorous-cool-brownie.glitch.me/messages')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 
@@ -32,7 +32,7 @@ const Chat = () => {
     if (message.trim() && user.trim()) {
       const newMessage = { user, content: message };
       socket.emit('sendMessage', newMessage);
-      axios.post('https://rigorous-cool-brownie.glitch.me', newMessage)
+      axios.post('https://rigorous-cool-brownie.glitch.me/messages', newMessage)
         .catch(error => console.error('Error sending message:', error));
       setMessage('');
     }
